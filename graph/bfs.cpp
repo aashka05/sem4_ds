@@ -1,3 +1,8 @@
+//for (int i = 0; i < n; ++i) {
+//        if (adj[current][i] && !visited[i]) 
+//            q[rear++] = i;
+//            visited[i] = true
+
 #include <iostream>
 #define MAX 100
 
