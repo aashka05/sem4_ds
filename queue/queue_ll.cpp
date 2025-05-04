@@ -1,3 +1,7 @@
+//enqueue - rear->next = nn, rear = nn
+//dequeue - f = f->next 
+//display - ptr=f while ptr->data != NULL
+
 #include <iostream>
 using namespace std;
 
