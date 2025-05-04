@@ -1,44 +1,46 @@
 #include <iostream>
-#include <stack>
-#include <string>
 using namespace std;
 
-// Helper to check if a character is an operator
+const int MAX = 100;
+
 bool isOperator(char c) {
     return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
 }
 
-// Convert postfix to infix
+// Postfix to Infix
 string postfixToInfix(string postfix) {
-    stack<string> s;
-    for (char c : postfix) {
+    string stack[MAX];
+    int top = -1;
+
+    for (int i = 0; i < postfix.length(); i++) {
+        char c = postfix[i];
         if (isOperator(c)) {
-            string op2 = s.top(); s.pop();
-            string op1 = s.top(); s.pop();
-            string temp = "(" + op1 + c + op2 + ")";
-            s.push(temp);
+            string op2 = stack[top--];  // pop
+            string op1 = stack[top--];  // pop
+            stack[++top] = "(" + op1 + c + op2 + ")";  // push
         } else {
-            s.push(string(1, c));
+            stack[++top] = string(1, c);  // push
         }
     }
-    return s.top();
+    return stack[top];  // peek
 }
 
-// Convert prefix to infix
+// Prefix to Infix
 string prefixToInfix(string prefix) {
-    stack<string> s;
+    string stack[MAX];
+    int top = -1;
+
     for (int i = prefix.length() - 1; i >= 0; i--) {
         char c = prefix[i];
         if (isOperator(c)) {
-            string op1 = s.top(); s.pop();
-            string op2 = s.top(); s.pop();
-            string res = "(" + op1 + c + op2 + ")";
-            s.push(res);
+            string op1 = stack[top--];  // pop
+            string op2 = stack[top--];  // pop
+            stack[++top] = "(" + op1 + c + op2 + ")";  // push
         } else {
-            s.push(string(1, c));
+            stack[++top] = string(1, c);  // push
         }
     }
-    return s.top();
+    return stack[top];  // peek
 }
 
 int main() {
