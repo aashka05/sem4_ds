@@ -1,4 +1,7 @@
 //preorder - NLR
+//for (int i = 0; i < n; ++i) {
+//        if (adj[current][i] && !visited[i]) 
+//            dfs(adj, visited, n, start/current)
 
 #include <iostream>
 #define MAX 100
