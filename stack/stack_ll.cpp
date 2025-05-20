@@ -23,12 +23,12 @@ void push() {
         cout << "Overflow" << endl;
         return;
     }
-	int val;
+    int val;
     cout << "Enter val: ";
     cin >> val;
     Node* newnode = avail;
-	avail = avail->next;
-	newnode->data = val;
+    avail = avail->next;
+    newnode->data = val;
     newnode->next = start;
     start = newnode;
     top++;
