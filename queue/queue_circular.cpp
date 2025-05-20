@@ -32,7 +32,7 @@ void dequeue(int arr[], int &f, int &r) {
     if (f == r) {  // Last element
         f = r = -1;  // Reset queue to empty
     } else {
-        f = (f + 1) % (r + 1);  // Circularly move the front index
+        f = (f + 1) % max_;  // Circularly move the front index
     }
 }
 
