@@ -66,7 +66,7 @@ string infixToPrefix(string infix) {
             }
             top--;
         } else if (isOperator(c)) {
-            while (top != -1 && precedence(s[top]) > precedence(c)) {
+            while (top != -1 && precedence(s[top]) >= precedence(c)) {
                 prefix += s[top--];
             }
             s[++top] = c;
